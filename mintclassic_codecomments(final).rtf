@@ -1,0 +1,203 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2759
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica-Bold;\f1\fswiss\fcharset0 Helvetica;\f2\fswiss\fcharset0 Helvetica-Oblique;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red203\green42\blue5;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c84173\c24610\c0;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf0 TITLE
+\f1\b0 : \
+	Mint Car Inventory Case Study - Code Comments\
+
+\f0\b PROGRAM
+\f1\b0 : \
+	MySql\
+
+\f0\b DATABASE
+\f1\b0 : \
+	mintclassics database\
+
+\f0\b TABLES
+\f1\b0 :\
+	warehouses; products; productlines; orderdetails; orders; customers; payments; employees; offices\
+\
+
+\f0\b \cf2 COMMENTS ABT THE CODE
+\f1\b0 \cf0 \
+*
+\f2\i Comments follow the exact same order of the code. The reference is the comment above the code in the coding file. Comments does not refer to the table loading part
+\f1\i0 *\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b \cf3 ########### ANALYSIS 
+\f1\b0 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 Query that loads the database\
+\
+
+\f0\b \cf3 #total stock in each warehouse and total number of different prods
+\f1\b0 \cf0 \
+Query that displays in a descending order the total amount of stock (as a sum of the stocks x each product) in each warehouse along with the total number of different products it contains.\
+\
+
+\f0\b \cf3 ###### Product Analysis\
+#total stock for each prod
+\f1\b0 \cf0 \
+Query that displays (in a descending order) the total unit in stock for each product, its name and code and the warehouse.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b \cf3 #find the item that has more units in stock
+\f1\b0 \cf0 \
+Query that shows the code, name, quantity in stock and the warehouse of the product with the highest quantity of stock.\
+
+\f0\b \cf3 #find the item that has less units in stock
+\f1\b0 \cf0 \
+Query that shows the code, name, quantity in stock and the warehouse of the product with the lowest quantity of stock.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b \cf3 #top 5 prod with the highest amount in stock\
+
+\f1\b0 \cf0 Query that shows the 5 products that have the highest number of units in stock\
+
+\f0\b \cf3 #top 5 prod with the lowest amount in stock
+\f1\b0 \cf0 \
+Query that shows the 5 products that have the lowest number of units in stock\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b \cf3 ######productline analysis\
+#productline with the highest amount of stocks
+\f1\b0 \cf0 \
+Query that orders in a descending order the product lines that have more quantity in stock\
+
+\f0\b \cf3 #productline total stock, total orders, profit, costs and order/stock %\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b0 \cf2 Query that builds a temporary table with every single product line total unit in stock, total unit ordered, profit (price x unit sold) and costs (price x unity in stock) and the ratio between order/stock\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b \cf3 #compute the difference between costs and profit
+\f1\b0 \cf2 \
+Query that shows the product line earnings as a difference between profit and costs\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b \cf3 #inquire stock situation products in train, ships and planes lines\
+#get overstock items
+\f1\b0 \cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 Query that create a temporary table and display it about products within the category trains, ships and planes that have stocks units > 2500 (excessive)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b \cf3 #show how much inventory can be reduced
+\f1\b0 \cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 Query that displays the warehouse that contains the unit in excess of the category: train, planes and ships.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b \cf3 #avg units ordered x order
+\f1\b0 \cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 Query that computes the number of average items ordered x order based on the amount of units ordered in each order of the year\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b \cf3 #1: are there prods with high inventory but low sales?
+\f1\b0 \cf2 \
+Query that shows each product total quantity in stock and total quantity order\
+
+\f0\b \cf3 #to have a better view, build a column EffStock = StockSum -OrderSum
+\f1\b0 \cf2 \
+Query that creates a temporary table with new column that is the difference between the quantity stocked and the quantity ordered and order the product based on that in ascending order\
+
+\f0\b \cf3 #is there a prod that has never sold a unit?
+\f1\b0 \cf2 \
+Query that identifies if there is a product that has never been ordered and the warehouse it is stored\cf0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b \cf3 ###### warehouse analysis
+\f1\b0 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b \cf3 #are all the warehouses still necessaries?\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf3 #total stock in each warehouse and total number of different prods
+\f1\b0 \cf0 \
+Query that displays in a descending order the total amount of stock (as a sum of the stocks x each product) in each warehouse along with the total number of different products it contains.
+\f0\b \cf3 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf3 #total inventory for each prod in each warehouse\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\b0 \cf2 Query that shows the product and their total amount of stock in each different warehouses\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b \cf3 #warehouses with the highest amount of stocks
+\f1\b0 \cf2 \
+Query that orders the warehouses based on the total unit of stocks in a descending order\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b \cf3 #prod that need a re-stock for each warehouse
+\f1\b0 \cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 Query that shows the shortage of products (and the missing units) for each warehouse.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b \cf3 #unit of prod that can be dropped for each warehouse
+\f1\b0 \cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 Query that shows units in excess for each warehouse that can be dropped to fulfill the 2500 threshold.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b \cf3 #warehouses with the highest amount of stocks
+\f1\b0 \cf2 \
+Query that orders the warehouses based on the total unit in stock in each one receive in a descending order
+\f0\b \cf3 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf3 #warehouses that receive more order
+\f1\b0 \cf2 \
+Query that orders the warehouses based on the total unit ordered that each one receive in a descending order\
+\
+
+\f0\b \cf3 #3: is there a relation between prod prices and their sales level?\
+#selling price and quantity order relation
+\f1\b0 \cf2 \
+Query that displays each product\'92s unit in stock, buy price, quantity ordered and selling price. Results are ordered in a descending order based on selling price\
+
+\f0\b \cf3 #this does not give so much info -> delve more
+\f1\b0 \cf2 \
+Query that orders displays product buy price and the number of total unit ordered for that products and orders the results in a descending manner based on prod buy price\
+\
+
+\f0\b \cf3 #4: Customer analysis: whore are those that buy more? \
+# How to best value them?
+\f1\b0 \cf2 \
+Query that orders the customer based on the number of order they have placed\
+
+\f0\b \cf3 #Customer\'92s payment trends
+\f1\b0 \cf2 \
+Query that orders the customer based on the amount of their payments in a descending order\
+
+\f0\b \cf3 #customer credit issues
+\f1\b0 \cf2 \
+Query that displays the customer order by the total amount of payments they have made and with the addition of a new column DiffCreditLimit (as the difference between payments amount and customer credit limit)\
+\
+
+\f0\b \cf3 #5: employee analysis: employee performance evaluation by sale data\
+#employee that expedite the major number of orders
+\f1\b0 \cf2 \
+Query that shows the total number of order that each employee has expedited and order the employees based in a descending order based on those.\
+
+\f0\b \cf3 #total earning x employee
+\f1\b0 \cf2 \
+Query that displays the earning that each employee brought to the company\
+\
+\cf0 \
+\
+\
+\
+\
+}
