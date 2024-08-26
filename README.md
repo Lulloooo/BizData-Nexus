@@ -3,7 +3,7 @@ Welcome to my Business and Data Analysis projects hub 📊
 Think of this repo as **my personal-and-professional website**, aka Lullo.com. 🌐 Here, you’ll find most of the Business & Data Analysis projects I’ve worked on over the years as a Business Data Analyst 📈. Whether for professional purposes or just for fun, if I’ve touched it, you'll find it here. 🔢
 
 To keep things tidy, **every project has its own folder 📁**.   
-Each folder name gives a hint of what the analysis is about. If it seems a bit brief, don’t worry — each analysis comes with a README to walk you through the project. That's, of course, isn't the only thing inside the folder. You'll find also:
+Each folder name gives a hint of what the analysis is about. If it seems a bit brief, don’t worry — each analysis comes with a README to walk you through the project. That, of course, isn't the only thing inside the folder. You'll find also:
 
 - 1️⃣ **README.md**: an analyisis' detailed description, highlitinhg its main goals.
 - 2️⃣ **Code**: The scripts and code files used for that specific projects.
