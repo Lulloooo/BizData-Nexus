@@ -13,8 +13,9 @@ Each folder name gives a hint of what the analysis is about. If it seems a bit b
 - 5️⃣ **img Folder**: All the charts and images created during the analysis.
 - 6️⃣ **Other Files/Folders**: Anything else that might be useful, like documentation, relevant papers, or additional resources
 
-Feel free to dig into 🔎 any folder that piques your interests. I'm always open to new perspectives about my work and firmly believe that there is always something new to learn.  
-Reach out with any feedbacks or comments 📩 -- I’ll be happy to chat 💬.  
+Feel free to dig into 🔎 any folder that piques your interests. You may even find something inspiring (at least that's my hope) 💡  
+I'm always eager to hear different perspectives about my work. There's always something new to learn 📚  
+I'll be happy to chat about it 💬 -- Just reach me out with any feedback, comment or idea 📩   
 <a href="mailto:lucagabri98@live.it"><img src="https://img.shields.io/badge/lucagabri98-c71610?style=flat&logo=gmail&logoColor=white" width="80"></a>
 <a href="la-databizanalyst"><img src="https://img.shields.io/badge/%40LA-0E76A8?style=flat&logo=linkedin&logoColor=white" width="45"></a>
 
