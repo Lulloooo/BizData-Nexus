@@ -7,12 +7,12 @@ from sqlalchemy import create_engine, text
 #access to the etl_database df
 mydb = mysql.connector.connect(
   host="localhost",
-  user="Luca Albertini",
-  password="Luchino10!",
-  database="etl_database"
+  user="username",
+  password="password",
+  database="database"
 )
 #set the engine (SQLAlchemy) to communicate with SQL
-engine = create_engine("mysql+mysqlconnector://Luca Albertini:Luchino10!@localhost/etl_database")
+engine = create_engine("mysql+mysqlconnector://username:password@localhost/database")
 
 
 #LOCAL DF LOADING
