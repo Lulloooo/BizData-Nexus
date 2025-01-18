@@ -17,7 +17,7 @@ Feel free to dig into 🔎 any folder that piques your interests. You may even f
 I'm always eager to hear different perspectives about my work. There's always something new to learn 📚  
 I'll be happy to chat about it 💬 -- Just reach me out with any feedback, comment or idea 📩   
 <a href="mailto:lucagabri98@live.it"><img src="https://img.shields.io/badge/lucagabri98-c71610?style=flat&logo=gmail&logoColor=white" width="80"></a>
-<a href="la-databizanalyst"><img src="https://img.shields.io/badge/%40LA-0E76A8?style=flat&logo=linkedin&logoColor=white" width="45"></a>
+<a href="la-databizanalyst"><img src="https://img.shields.io/badge/%40LA-0E76A8?style=flat&logo=linkedin&logoColor=white" width="30"></a>
 
 **Note**: Any work-related projects has been approved for posting, and all sensitive information and data omitted to protect privacy. Projects containing sensitive data has not been posted. 
 
