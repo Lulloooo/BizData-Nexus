@@ -11,7 +11,7 @@ Python (especially Jupyter Notebook), Google Colab, and PowerPoint were used thr
 In this repo, you will find the following:   
   
 **1️⃣. SalifortAnalysis.ipynb**: The full analysis code, including comments, final insights, actionable recommendations, and suggestions for future improvements.  
-**2️⃣. ModelDeployment.ipynb**: An early-stage deployment notebook. Input employee features and get a predicted probability of resignation. 
+**2️⃣. ModelDeployment.ipynb**: An early-stage deployment notebook. Input employee features and get a predicted probability of resignation.  
 **3️⃣. Salifort_ExecutiveSummary.pdf**: A stakeholder-ready executive summary. It presents results, insights, and recommendations in a concise format.  
 **4️⃣. DataDictionrary.xlsx**: The data dictionary for the dataset, with details on each variable. 
 **5️⃣. models folder**: Contains serialized versions of trained models.  
