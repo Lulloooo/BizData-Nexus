@@ -1,6 +1,6 @@
 # 🏦 JPM Quantitative researcher - job simulator
 
-This repo contains the analyses I did during a job simulator as a Quantitative researcher At JP Morgan.👨‍💻 The simulation focuses on quantitative research methods.🔢   
+This repo contains the analyses I did during a job simulation as a Quantitative researcher At JP Morgan.👨‍💻 The simulation focuses on quantitative research methods.🔢   
 Through the various tasks, I employed different Machine-learning techniques to predict different financial and risk-related indicators.
 In the last task, dynamic programming has been used too. Plus, I tackled all the tasks in the python and jupiter environment.  
 
