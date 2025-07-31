@@ -1,4 +1,4 @@
-# Aus-MacroEcoAnalysis
+# 🇦🇹 Austria's Macro-economics indicators Analysis
 This project is an additional part of the project within the labor demand repository. Altogether, these 2 projects were part of  an University project (passed with Honors 🎉) and the first time I employed R for my analysis. 
 This specific case study aims to analyze macro-variables for Austria and estimate the Philips-curve for it. More in details, I employed time series analysis, differencing, stationarity tests and different OLS models (along with the BIC for lag selection and robust standard errors) to estimate the Philips curve. 
 ❗️Detailed analysis' results and discussion can be found in the Austria-MacroEco-Analysis.pdf file.
