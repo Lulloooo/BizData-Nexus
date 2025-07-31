@@ -10,8 +10,9 @@ To keep things tidy, **every project has its own folder 📁:**
 | 📁 Repo Name | 🔤 Project's Title | 💬 Brief Description |
 | :---:        | :---:              | :---:                |
 | [Aus_MacroEcoAnalysis](https://github.com/Lulloooo/BizData-Nexus/tree/main/Aus-MacroEcoAnalysis) | Austria's Macro-Economic Analysis | Exploratory analysis of Austria's Macro economics indicators and its Philip-curve estimation |
-| [laborDemand1997-estimation](https://github.com/Lulloooo/BizData-Nexus/tree/main/laborDemand1997-estimation) | 1197 Labor Demand estimation | Firms' labor demand estimation through OLS, IV models and a Panel Data Approach |
 | [ETL_StateEmissions](https://github.com/Lulloooo/BizData-Nexus/tree/main/ETL_StateEmission) | Extract, Transform & Load | ETL from a local .csv file to a MySQL database |
+| [laborDemand1997-estimation](https://github.com/Lulloooo/BizData-Nexus/tree/main/laborDemand1997-estimation) | 1197 Labor Demand estimation | Firms' labor demand estimation through OLS, IV models and a Panel Data Approach |
+| [WB-FinancialTrend](https://github.com/Lulloooo/BizData-Nexus/tree/main/WB-FinancialTrends) | Decoding Financial Trend: an Analysis of The World Bank financial indicators | WB financial indicators' analysis for 7 different countries and ARIMA model to estimate US SP500 future values |
 <br>   
     
 Each folder name gives a hint of what the analysis is about. If it seems a bit brief, don’t worry — each analysis comes with a README to walk you through the project. That, of course, isn't the only thing inside the folder. You'll find also:
