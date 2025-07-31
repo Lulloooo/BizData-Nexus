@@ -4,9 +4,9 @@ This specific case study aims to analyze macro-variables for Austria and estimat
 ❗️Detailed analysis' results and discussion can be found in the Austria-MacroEco-Analysis.pdf file.
 This project contains 2 files and 2 folder (ReadMe.md excluded):
 
-1️⃣ a .pdf file that contains the analysis and the estimation procedure and results
-2️⃣ a .R file that contains the code of the estimation
-3️⃣ in_data folder that contains the df that has been analyzed.
-4️⃣ out_data folder that contains the output (plots) from the .R file.
+1️⃣ a .pdf file that contains the analysis and the estimation procedure and results  
+2️⃣ a .R file that contains the code of the estimation  
+3️⃣ in_data folder that contains the df that has been analyzed.  
+4️⃣ out_data folder that contains the output (plots) from the .R file.  
 
 Feel free to get in touch with me with comments and/or feedbacks. 📩
