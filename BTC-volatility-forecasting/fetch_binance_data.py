@@ -8,7 +8,7 @@ from pathlib import Path
 SYMBOL = "BTC/USDT"
 TIMEFRAME = "1d"
 OUTPUT_PATH = Path(
-    "BTC-Volatility-forecasting/BTC-volatility-data/btc_data.csv"
+    "BTC-Volatility-forecasting/BTC-volatility-data/btc-data.csv"
 )
 
 # -------------------
