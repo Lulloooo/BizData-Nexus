@@ -1,88 +1,72 @@
-import ccxt
+import requests
 import pandas as pd
 from pathlib import Path
+from datetime import datetime, timedelta
 
 # -------------------
 # CONFIG
 # -------------------
-SYMBOL = "BTC/USDT"
-TIMEFRAME = "1d"
-OUTPUT_PATH = Path(
-    "BTC-Volatility-forecasting/BTC-volatility-data/btc-data.csv"
-)
+SYMBOL = "bitcoin"
+VS_CURRENCY = "usd"
+OUTPUT_PATH = Path("BTCVolatility-data/volatility_data.csv")
+N_DAYS = 90  # Number of days to fetch
 
 # -------------------
-# FETCH FUNCTION
+# FETCH DATA
 # -------------------
-def fetch_ohlcv(symbol, timeframe, since=None):
-    exchange = ccxt.okx({"enableRateLimit": True})
-    limit = 1000
-    all_data = []
+def fetch_ohlcv_coingecko(symbol, vs_currency, n_days=90):
+    end = datetime.utcnow()
+    start = end - timedelta(days=n_days)
 
-    while True:
-        data = exchange.fetch_ohlcv(
-            symbol,
-            timeframe=timeframe,
-            since=since,
-            limit=limit
-        )
+    url = f"https://api.coingecko.com/api/v3/coins/{symbol}/market_chart/range"
+    params = {
+        "vs_currency": vs_currency,
+        "from": int(start.timestamp()),
+        "to": int(end.timestamp())
+    }
 
-        if not data:
-            break
+    r = requests.get(url, params=params, timeout=20)
+    r.raise_for_status()
+    data = r.json()
 
-        all_data.extend(data)
-        since = data[-1][0] + 1
+    prices = pd.DataFrame(data["prices"], columns=["timestamp", "close"])
+    volumes = pd.DataFrame(data["total_volumes"], columns=["timestamp", "volume"])
+    df = prices.merge(volumes, on="timestamp")
 
-        if len(data) < limit:
-            break
-
-    return all_data
-
-# -------------------
-# MAIN LOGIC
-# -------------------
-if OUTPUT_PATH.exists():
-    # Incremental update
-    existing = pd.read_csv(OUTPUT_PATH, parse_dates=["timestamp"], index_col="timestamp")
-    last_ts = int(existing.index[-1].timestamp() * 1000)
-
-    print("🔄 Updating from:", existing.index[-1])
-
-    new_data = fetch_ohlcv(SYMBOL, TIMEFRAME, since=last_ts)
-
-    df_new = pd.DataFrame(
-        new_data,
-        columns=["timestamp", "open", "high", "low", "close", "volume"]
-    )
-
-    if not df_new.empty:
-        df_new["timestamp"] = pd.to_datetime(df_new["timestamp"], unit="ms")
-        df_new.set_index("timestamp", inplace=True)
-        df = pd.concat([existing, df_new]).drop_duplicates()
-    else:
-        df = existing
-
-else:
-    # Full backfill (run once)
-    print("⬇️ Full historical download")
-    start_date = "2017-08-01T00:00:00Z"
-    exchange = ccxt.binance()
-    since = exchange.parse8601(start_date)
-
-    data = fetch_ohlcv(SYMBOL, TIMEFRAME, since=since)
-
-    df = pd.DataFrame(
-        data,
-        columns=["timestamp", "open", "high", "low", "close", "volume"]
-    )
     df["timestamp"] = pd.to_datetime(df["timestamp"], unit="ms")
     df.set_index("timestamp", inplace=True)
 
-# -------------------
-# SAVE
-# -------------------
-df = df.sort_index()
-df.to_csv(OUTPUT_PATH)
+    # OHLC resample
+    df = df.resample("1D").agg(
+        open=("close", "first"),
+        high=("close", "max"),
+        low=("close", "min"),
+        close=("close", "last"),
+        volume=("volume", "sum")
+    ).dropna()
 
-print(f"✅ BTC data saved ({len(df)} rows)")
-print("Range:", df.index.min(), "→", df.index.max())
+    return df
+
+# -------------------
+# SAVE TO CSV
+# -------------------
+def update_backup():
+    OUTPUT_PATH.parent.mkdir(exist_ok=True, parents=True)
+
+    if OUTPUT_PATH.exists():
+        existing = pd.read_csv(OUTPUT_PATH, parse_dates=["timestamp"], index_col="timestamp")
+        last_ts = existing.index[-1]
+        df_new = fetch_ohlcv_coingecko(SYMBOL, VS_CURRENCY, N_DAYS)
+        df = pd.concat([existing, df_new]).drop_duplicates()
+    else:
+        df = fetch_ohlcv_coingecko(SYMBOL, VS_CURRENCY, N_DAYS)
+
+    df = df.sort_index()
+    df.to_csv(OUTPUT_PATH)
+    print(f"✅ Saved backup: {len(df)} rows ({df.index.min()} → {df.index.max()})")
+
+# -------------------
+# RUN
+# -------------------
+if __name__ == "__main__":
+    update_backup()
