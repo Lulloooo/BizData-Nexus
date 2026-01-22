@@ -1,44 +1,36 @@
 name: Daily BTC Data Update
 
-"on":
+on:
   schedule:
-    - cron: "0 2 * * *"   # Runs every day at 02:00 UTC
-  workflow_dispatch:      # Allows manual runs from GitHub UI
+    - cron: "0 2 * * *"
+  workflow_dispatch:
 
 jobs:
   update-btc-data:
     runs-on: ubuntu-latest
 
     steps:
-      #Get the repository code
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      #Set up Python
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.10"
 
-      #Install dependencies
       - name: Install Python dependencies
         run: |
           pip install --upgrade pip
           pip install ccxt pandas numpy
 
-      #Run the Binance data pipeline
       - name: Fetch latest BTC data
         run: |
           python BTC-Volatility-forecasting/data_pipeline/fetch_binance_data.py
 
-      #Commit and push changes (if any)
       - name: Commit and push updated data
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-
           git add BTC-Volatility-forecasting/BTC-volatility-data/btc_data.csv
-
           git commit -m "Daily BTC data update" || echo "No changes to commit"
-
           git push
