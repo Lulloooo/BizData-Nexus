@@ -5,7 +5,7 @@ from pathlib import Path
 # -------------------
 # CONFIG
 # -------------------
-SYMBOL = "BTC/USDT"
+SYMBOL = "BTC-USDT"
 TIMEFRAME = "1d"
 OUTPUT_PATH = Path(
     "BTC-Volatility-forecasting/BTC-volatility-data/btc-data.csv"
@@ -15,7 +15,9 @@ OUTPUT_PATH = Path(
 # FETCH FUNCTION
 # -------------------
 def fetch_ohlcv(symbol, timeframe, since=None):
-    exchange = ccxt.okx({"enableRateLimit": True})
+    exchange = ccxt.okx({"enableRateLimit": True,
+                         "options": {"defaultType": "spot"}
+                        })
     limit = 1000
     all_data = []
 
