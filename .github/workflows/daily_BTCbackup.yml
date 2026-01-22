@@ -38,4 +38,4 @@ jobs:
           git config user.email "github-actions@github.com"
           git add BTCVolatility-data/volatility_data.csv
           git commit -m "Daily BTC volatility backup" || echo "No changes"
-          git push
+          git push "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" HEAD:main
