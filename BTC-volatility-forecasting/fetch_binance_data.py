@@ -6,17 +6,34 @@ from datetime import datetime, timedelta
 # -------------------
 # CONFIG
 # -------------------
+<<<<<<< HEAD
 SYMBOL = "bitcoin"
 VS_CURRENCY = "usd"
 OUTPUT_PATH = Path("BTCVolatility-data/volatility_data.csv")
 N_DAYS = 90  # Number of days to fetch
+=======
+SYMBOL = "BTC-USDT"
+TIMEFRAME = "1d"
+OUTPUT_PATH = Path(
+    "BTC-Volatility-forecasting/BTC-volatility-data/btc-data.csv"
+)
+>>>>>>> 655c1f4a370811e05a0d8de2030c50c7e8946484
 
 # -------------------
 # FETCH DATA
 # -------------------
+<<<<<<< HEAD
 def fetch_ohlcv_coingecko(symbol, vs_currency, n_days=90):
     end = datetime.utcnow()
     start = end - timedelta(days=n_days)
+=======
+def fetch_ohlcv(symbol, timeframe, since=None):
+    exchange = ccxt.okx({"enableRateLimit": True,
+                         "options": {"defaultType": "spot"}
+                        })
+    limit = 1000
+    all_data = []
+>>>>>>> 655c1f4a370811e05a0d8de2030c50c7e8946484
 
     url = f"https://api.coingecko.com/api/v3/coins/{symbol}/market_chart/range"
     params = {
