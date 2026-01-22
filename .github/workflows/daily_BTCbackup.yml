@@ -29,7 +29,7 @@ jobs:
       # 4️⃣ Run backup script
       - name: Backup CoinGecko OHLCV
         run: |
-          python BTCVolatility-data/backup_coingecko.py
+          python BTC-volatility-forecasting/data-pipeline/BTCdata_pipeline.py
 
       # 5️⃣ Commit & push
       - name: Commit updated CSV
