@@ -15,7 +15,7 @@ OUTPUT_PATH = Path(
 # FETCH FUNCTION
 # -------------------
 def fetch_ohlcv(symbol, timeframe, since=None):
-    exchange = ccxt.binance({"enableRateLimit": True})
+    exchange = ccxt.okx({"enableRateLimit": True})
     limit = 1000
     all_data = []
 
