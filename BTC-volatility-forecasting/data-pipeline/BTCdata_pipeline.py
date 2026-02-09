@@ -1,3 +1,9 @@
+################
+# SCRIPT BACKING UP OHLCV DATA
+# This saves OHLCV volatility data from CoinGecko (BTCVolatility-data/volatility_data.csv)
+# The saved df is used as backup in the app.py if issues arises in fetching Coingeko API
+################
+
 import requests
 import pandas as pd
 from pathlib import Path

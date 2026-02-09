@@ -1,10 +1,19 @@
+
+################
+# SCRIPT TO MERGE ALL THE SPLIT DATA (TRAINING - VALIDATION - TESTING) in a single df
+# (X_baseline and y_baseline). This:
+# a) shows all the data used for tuning in the Analysis notebook
+# b) is the starting point (left untouched) to whom each month data are added to re-train the model
+################
+
 #import packages
 from pathlib import Path
 import pandas as pd
 
 #directories
 base_dir = Path(__file__).resolve().parents[1]   # BTC-volatility-forecasting/
-data_dir = base_dir / "data"
+data_dir = base_dir / "data"/ "analysis-and-tuning-data"
+out_data_dir = base_dir / "data"
 
 #regressors
 X_tr = pd.read_csv(data_dir/ "X_tr_ewm.csv",index_col="date",parse_dates=["date"])
@@ -50,10 +59,10 @@ if "Unnamed: 0" in y_full.columns:
     y_full = y_full.drop(columns="Unnamed: 0")
 #save it
 # X keeps date as index
-X_full.to_csv(data_dir / "training_data"/ "X_full.csv", index=True)
+X_full.to_csv(out_data_dir / "training_data"/ "X_baseline.csv", index=True)
 
 # y has no date index, just values
-y_full.to_csv(data_dir / "training_data"/ "y_full.csv", index=False)
+y_full.to_csv(out_data_dir / "training_data"/ "y_baseline.csv", index=False)
 
 
 
